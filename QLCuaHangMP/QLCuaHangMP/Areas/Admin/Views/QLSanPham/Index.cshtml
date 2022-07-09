@@ -1,0 +1,281 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid" ng-controller="QLSanPhamController">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        @*<i class="fas fa-home"></i><a href="#" class="item"> Trang chủ</a>
+            <p>
+                Đây là trang quản trị của cửa hàng mỹ phẩm Beauty Natrue. Liên hệ ngay cho chúng
+                tôi khi cần trợ giúp
+            </p>*@
+        <h1 class="h3 mb-0 text-gray-800">Quản lí sản phẩm</h1>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ProductModal">
+            Thêm sản phẩm
+        </button>
+
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+        <!--Hiển thị thông tin ds sản phẩm-->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">MaSP</th>
+                    <th scope="col">TenSP</th>
+                    <th scope="col">MaDong</th>
+                    <th scope="col">MaTH</th>
+                    <th scope="col">GiaBan</th>
+                    <th scope="col">KieuDang</th>
+                    <th scope="col">DungLuong</th>
+                    <th scope="col">MuiHuong</th>
+                    <th scope="col">MauSac</th>
+                    <th scope="col">MoTa</th>
+                    <th scope="col">Anh</th>
+
+                    @*<th scope="col">Soluong</th>*@
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr @*ng-repeat="sp in listSanPham"*@ dir-paginate="sp in listSanPham|orderBy:sortcolumn:reverse|itemsPerPage:pageSize|filter:searchName" total-items="totalCount">
+                    <th scope="col">{{sp.MaSP}}</th>
+                    <th scope="col" style="width: 200px">{{sp.TenSP}}</th>
+                    <th scope="col">{{sp.MaDong}}</th>
+                    <th scope="col">{{sp.MaTH}}</th>
+                    <th scope="col">{{sp.GiaBan}}</th>
+                    <th scope="col">{{sp.KieuDang}}</th>
+                    <th scope="col">{{sp.DungLuong}}</th>
+                    <th scope="col" style="width: 130px">{{sp.MuiHuong}}</th>
+                    <th scope="col" style="width: 100px">{{sp.MauSac}}</th>
+                    <th scope="col" style="width: 260px">{{sp.MoTa}}</th>
+                    <th scope="col"><img style="height: 50px; width: 50px" src="~/Areas/Admin/images/{{sp.Anh}}" /></th>
+
+                    <th scope="col">
+
+
+                        <button ng-click="Edit(sp)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#editSPModal">
+                            <i class="fas fa-edit"></i>
+                        </button>
+
+
+                        <button ng-click="Delete(sp)">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+
+                    </th>
+                </tr>
+
+            </tbody>
+        </table>
+        <dir-pagination-controls max-size="maxSize"
+                                 direction-links="true"
+                                 boundary-links="true"
+                                 on-page-change="GetSanPhamList(newPageNumber)" style="float:right;">
+        </dir-pagination-controls>
+    </div>
+
+    <!-- Button trigger modal -->
+    @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ProductModal">
+            Launch demo modal
+        </button>*@
+
+    <!--ADD Modal -->
+    <div class="modal fade" id="ProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thêm sản phẩm</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered">
+
+                        <tbody>
+                            <tr>
+                                <td>Ma SP</td>
+                                <td><input ng-model="sanpham.MaSP" /></td>
+                            </tr>
+                            <tr>
+                                <td>Ten SP</td>
+                                <td><input ng-model="sanpham.TenSP" /></td>
+                            </tr>
+                            <tr>
+                                <td>Ma Dong </td>
+                                <td>
+                                    <select ng-model="sanpham.MaDong">
+                                        <option ng-repeat="l in listDongSP"
+                                                value="{{l.MaDong}}">
+                                            {{l.MaDong}}
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ma TH</td>
+                                <td>
+                                    <select ng-model="sanpham.MaTH">
+                                        <option ng-repeat="th in listThuongHieu"
+                                                value="{{th.MaTH}}">
+                                            {{th.MaTH}}
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>GiaBan</td>
+                                <td><input ng-model="sanpham.GiaBan" /></td>
+                            </tr>
+
+                            <tr>
+                                <td>Kieu Dang</td>
+                                <td><input ng-model="sanpham.KieuDang" /></td>
+                            </tr>
+
+                            <tr>
+                                <td>Dung Luong</td>
+                                <td><input ng-model="sanpham.DungLuong" /></td>
+                            </tr>
+
+                            <tr>
+                                <td>Mui Huong</td>
+                                <td><input ng-model="sanpham.MuiHuong" /></td>
+                            </tr>
+
+                            <tr>
+                                <td>Mau Sac</td>
+                                <td><input ng-model="sanpham.MauSac" /></td>
+                            </tr>
+
+                            <tr>
+                                <td>Mo Ta</td>
+                                <td><input ng-model="sanpham.MoTa" /></td>
+                            </tr>
+                            <tr>
+                                <td>Anh</td>
+                                <td><input type="file" multiple="multiple" ngfselect="UploadFiles($files,'Anh')" /></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button ng-click="SaveAdd()" type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*Modal Sửa sản phẩm*@
+    <div class="modal fade" id="editSPModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sửa sản phẩm</h5>
+                    <button type="button" class="close" data-dismiss="modal"
+                            arialabel="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <table class="table table-bordered">
+
+                        <tbody>
+                            <tr>
+                                <td>Ma SP</td>
+                                <td><input ng-model="sanpham.MaSP" /></td>
+                            </tr>
+                            <tr>
+                                <td>Ten SP</td>
+                                <td><input ng-model="sanpham.TenSP" /></td>
+                            </tr>
+                            <tr>
+                                <td>Ma Dong </td>
+                                <td>
+                                    <select ng-model="sanpham.MaDong">
+                                        <option ng-repeat="l in listDongSP"
+                                                value="{{l.MaDong}}">
+                                            {{l.MaDong}}
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ma TH</td>
+                                <td>
+                                    <select ng-model="sanpham.MaTH">
+                                        <option ng-repeat="th in listThuongHieu"
+                                                value="{{th.MaTH}}">
+                                            {{th.MaTH}}
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Kieu Dang</td>
+                                <td><input ng-model="sanpham.KieuDang" /></td>
+                            </tr>
+
+                            <tr>
+                                <td>GiaBan</td>
+                                <td><input ng-model="sanpham.GiaBan" /></td>
+                            </tr>
+
+                            <tr>
+                                <td>Dung Luong</td>
+                                <td><input ng-model="sanpham.DungLuong" /></td>
+                            </tr>
+
+                            <tr>
+                                <td>Mui Huong</td>
+                                <td><input ng-model="sanpham.MuiHuong" /></td>
+                            </tr>
+
+                            <tr>
+                                <td>Mau Sac</td>
+                                <td><input ng-model="sanpham.MauSac" /></td>
+                            </tr>
+
+                            <tr>
+                                <td>Mo Ta</td>
+                                <td><input ng-model="sanpham.MoTa" /></td>
+                            </tr>
+                            <tr>
+                                <td>Anh</td>
+                                <td><input type="file" multiple="multiple" ngfselect="UploadFiles($files,'Anh')" /></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" datadismiss="modal">Close</button>
+                    <button ng-click="SaveEdit()" type="button" class="btn btn-primary"
+                            data-dismiss="modal">
+                        Update
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="~/Areas/Admin/Scripts/angular.min.js"></script>
+<script src="~/Areas/Admin/Scripts/Controller/Customer.js"></script>
+
+<script src="~/Areas/Admin/Scripts/Controller/LoginController.js"></script>
+<script src="~/Areas/Admin/Scripts/dirPagination.js"></script>

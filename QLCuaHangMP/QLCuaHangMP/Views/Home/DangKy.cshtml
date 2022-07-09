@@ -1,0 +1,54 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Đăng Ký</title>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/dirPagination.js"></script>
+    <script src="~/Scripts/Controller/CustomerController.js"></script>
+    <link href="~/css/DangKy.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css"
+          href="~/fontawesome/css/all.min.css" />
+    <script src='~/js/jquery-3.6.0.min.js' type='text/javascript'></script>
+</head>
+<body style="background-image: url(./image/nen2.png);" ng-app="CustommerApp">
+
+    <div id='main1' ng-controller="DangKiController">
+        <div class='header'>
+            ĐĂNG KÍ TÀI KHOẢN 
+        </div>
+        <div class='info'>
+            <form>
+                <div id='left'>
+                    <ul style='list-style: none'>
+                        <li>Họ tên:</li>
+                        <li>Số điện thoại:</li>
+                        <li>Địa Chỉ:</li>
+                        <li>Mật khẩu:</li>
+                    </ul>
+
+                </div>
+                <div id='right'>
+                    <ul style='list-style: none'>
+                        <li><input ng-model="khachhang.TenKH" type="text" class='a' name='name' id='name' required /><span id='e1' title="Họ và tên không quá 50 ký tự, không chứa ký tự số"> *</span></li>
+                        <li><input ng-model="khachhang.SdtKH" type="text" class='a' name='phone' id='phone' required /><span id='e4' title="Điện thoại chỉ là số"> *</span></li>
+                        <li><input ng-model="khachhang.DiaChi" type="text" class='a' name='address' id='adrdess' required /><span id='e3' title="Địa chỉ không quá 40 ký tự"> *</span></li>
+                        
+                        @*<li><input ng-model="khachhang.Username" type="text" class='a' required />*@
+                        <li><input ng-model="khachhang.MatKhau" type="text" class='a' required />
+
+                        <li><button class='btn-dangki' ng-click="Save()">Đăng kí</button></li>
+                    </ul>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

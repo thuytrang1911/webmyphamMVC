@@ -1,0 +1,88 @@
+﻿<html>
+<head>
+    <title>
+        Quản trị
+    </title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="home.css" />
+    <script src='./js/jquery-3.6.0.min.js' type='text/javascript'></script>
+    <!-- Font awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <script>
+			$(document).ready(function(){
+
+				$('.item-title').click(function(){
+					//$(this).siblings().addClass('item-odd');
+					//$(this).siblings().toggle();
+					$(this).siblings().slideToggle();
+				});
+			});
+    </script>
+</head>
+<body>
+    <div id="menu">
+        <div class="menu">
+            <a class="menu1" href="#">Shop Beauty</a>
+            <a class="menu2" href="#">Trang chủ</a>
+            <a class="menu2" href="beauty.html">Đến cửa hàng</a>
+            <a class="menu2" href="#">Liên hệ</a>
+            <a class="menu2" href="#">Đơn hàng</a>
+            <a class="menu3" href="#">Xin chào: Admin <i class="fas fa-caret-down"></i></a>
+        </div>
+    </div>
+    <div id="main">
+        <div id="main-left">
+            <div class='left-item'>
+
+                <div class='item-title'><i class="fas fa-home"></i> Trang chủ</div>
+            </div>
+            <div class='left-item'>
+                <div class='item-title'><i class="fas fa-sliders-h "></i> Quản trị danh mục <i class="fas fa-caret-down"></i></div>
+                <ul>
+                    <li>Loại sản phẩm </li>
+                    <li><a href="index.html" style="text-decoration: none;">Sản phẩm </a></li>
+                    <li>Nhà sản xuất</li>
+                    <li>Hóa đơn</li>
+                </ul>
+            </div>
+            <div class='left-item'>
+                <div class='item-title'><i class="fas fa-paint-brush"></i> Quản trị giao diện <i class="fas fa-caret-down"></i></div>
+                <ul>
+                    <li>Hình ảnh</li>
+                    <li>Thông tin</li>
+                    <li>Màu sắc</li>
+                    <li>Phông chữ</li>
+                </ul>
+            </div>
+            <div class='left-item'>
+                <div class='item-title'><i class="fab fa-intercom"></i> Quản trị khách hàng <i class="fas fa-caret-down"></i></div>
+                <ul>
+                    <li>Tài khoản</li>
+                    <li>Khách hàng</li>
+                </ul>
+            </div>
+            <div class='left-item'>
+                <div class='item-title'><i class="fas fa-cog fa-spin"></i> Cài đặt <i class="fas fa-caret-down"></i></div>
+                <ul>
+                    <li>Tài khoản</li>
+                    <li><a href="login.html" style="text-decoration: none;">Đăng xuất</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="main-right" class="col-10">
+            <div class="right-item">
+                <i class="fas fa-home"></i><a href="#" class="item"> Trang chủ</a>
+                <p>
+                    Đây là trang quản trị của cửa hàng mỹ phẩm Beauty Natrue. Liên hệ ngay cho chúng
+                    tôi khi cần trợ giúp
+                </p>
+
+
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

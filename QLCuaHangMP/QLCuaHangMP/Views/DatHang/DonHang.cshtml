@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "DonHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="main">
+    <div id="content-title">
+        <label class="cart-title">THANH TOÁN ĐƠN HÀNG</label>
+
+    </div>
+
+    <div class="col-7 col-m-4 col-s-12">
+        <label class="lbl-method">1. Chọn hình thức giao hàng</label>
+        <div id="deliver-method" style="border: 1px solid #ccc;">
+            <input style="zoom:1.2" type="radio" name="deliver" id="deliver1"><label for="deliver1">Giao hàng tiêu chuẩn</label><br />
+            <input type="radio" name="deliver" id="deliver2"><label for="deliver2">Giao hàng nhanh</label><br />
+            <input type="radio" name="deliver" id="deliver3"><label for="deliver3">Giao hàng tiết kiệm</label><br />
+            <input type="radio" name="deliver" id="deliver4"><label for="deliver4">Giao hàng siêu tốc</label>
+
+        </div>
+        <label class="lbl-method">2. Chọn hình thức thanh toán</label>
+        <div id="payment-method" style="border: 1px solid #ccc;">
+            <input type="radio" name="payment" id="payment1"><label for="payment1">Thanh toán khi nhận hàng</label><br />
+            <input type="radio" name="payment" id="payment2"><label for="payment2">Thanh toán bằng ví điện tử Momo</label><br />
+            <input type="radio" name="payment" id="payment3"><label for="payment3">Thanh toán qua zalopay</label><br />
+            <input type="radio" name="payment" id="payment4"><label for="payment4">Thanh toán bằng thẻ ATM nội địa</label>
+        </div>
+        <label class="lbl-method">3. Chọn ngày nhận hàng (Nhận hàng trong vòng 1 tuần từ ngày đặt mua)</label>
+        <div id="payment-method" style="border: 1px solid #ccc;">
+            <input type="radio" id="payment1"><label for="date1">Giao vào thứ 7, Chủ nhật</label><br />
+            <input type="radio" id="payment2"><label for="date2">Giao vào giờ hành chính</label><br />
+
+
+        </div>
+        <input class="btn-payment" style="width:100px;float: left;margin-top:70px;margin-left:300px" type="button" data-toggle="modal" data-target="#modalorder"
+               ng-click="DatHang()" value="HOÀN TẤT">
+    </div>
+</div>

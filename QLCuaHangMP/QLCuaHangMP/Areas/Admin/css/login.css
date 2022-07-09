@@ -1,0 +1,35 @@
+#login{
+    width: 600px; 
+    height: 350px; 
+    background-color: rgb(249, 252, 252); 
+    margin:auto; 
+    margin-top: 100px; 
+     
+    padding:20px;
+    box-shadow: 2px 2px 2px 2px rgb(194, 247, 247);
+    border-radius: 5px;
+}
+
+#login:hover{
+    box-shadow: 0px 0px 5px 5px rgb(86, 198, 202);
+	cursor: pointer;
+}
+
+.login-img{
+    float: left;
+}
+.login-img img{
+    width: 270px;height: 250px;
+}
+.login{
+    float: right;
+}
+
+.dn{
+    height: 32.6px; 
+    width: 120px;
+    background-color: rgb(221, 114, 51);
+    color: #FFF; 
+    border: 0px;
+    text-align: center
+}

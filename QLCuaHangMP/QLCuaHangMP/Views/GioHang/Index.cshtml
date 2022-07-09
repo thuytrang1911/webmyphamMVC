@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="main" style="width: 90%"  ng-controller="CartController">
+    <h2>Giỏ Hàng</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+
+                <th class="cart_product">Tên Sản Phẩm</th>
+                <th scope="col">Ảnh</th>
+                <th scope="col">Đơn Giá</th>
+                <th scope="col">Số lượng</th>
+                <th scope="col">Tổng Tiền</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="d in dsDonHang">
+                <th >{{d.TenSP}}</th>
+                <th >
+                    <img style="width: 50px; height: 50px" src="~/images/{{d.Anh}}" />
+                </th>
+                <td >{{d.Gia}}</td>
+                <th scope="col"><input type="number" min="1" class="form-control" ng-change="TinhTong()" {{d.SoLuong}} ng-model="d.SoLuong" style="width:50px" /></th>
+                <th style="color:red">{{d.SoLuong*d.Gia}}</th>
+
+
+                <th scope="col" class="action">
+                    <button ng-click="Delete(d.MaSP)"><i class="fas fa-trash-alt"></i></button>
+                    
+                </th>
+            </tr>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2" rowspan="1"></td>
+                <td colspan="3"><strong>Tổng: </strong></td>
+                <td colspan="1" id="total_price" style="font-weight: bold; font-size: 20px; color: red">{{TT}}đ</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+    <button type="button" class="btn btn-success" ng-click="KiemTraDangNhap()" data-toggle="modal" data-target="{{DangNhap}}"
+            @*href="/DatHang/Index"*@>
+        Đặt Hàng
+    </button>
+    
+    @*<div>
+        <a ng-click="ContinueShopping()"></a>
+        <a ng-click="KiemTraDangNhap"></a>
+    </div>*@
+</div>
+

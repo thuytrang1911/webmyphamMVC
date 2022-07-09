@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="main" style="width:80%; min-height: 1300px" ng-controller="DatHangController">
+    <h2>Đặt Hàng</h2>
+    <div class="col-7 col-m-4 col-s-12">
+        <label class="lbl-method">1. Chọn hình thức giao hàng</label>
+        <div id="deliver-method" style="border: 1px solid #ccc;">
+            <input style="zoom:1.2" type="radio" name="deliver" id="deliver1"><label for="deliver1">Giao hàng tiêu chuẩn</label><br />
+            <input type="radio" name="deliver" id="deliver2"><label for="deliver2">Giao hàng nhanh</label><br />
+            <input type="radio" name="deliver" id="deliver3"><label for="deliver3">Giao hàng tiết kiệm</label><br />
+            <input type="radio" name="deliver" id="deliver4"><label for="deliver4">Giao hàng siêu tốc</label>
+
+        </div>
+        <label class="lbl-method">2. Chọn hình thức thanh toán</label>
+        <div id="payment-method" style="border: 1px solid #ccc;">
+            <input type="radio" name="payment" id="payment1"><label for="payment1">Thanh toán khi nhận hàng</label><br />
+            <input type="radio" name="payment" id="payment2"><label for="payment2">Thanh toán bằng ví điện tử Momo</label><br />
+            <input type="radio" name="payment" id="payment3"><label for="payment3">Thanh toán qua zalopay</label><br />
+            <input type="radio" name="payment" id="payment4"><label for="payment4">Thanh toán bằng thẻ ATM nội địa</label>
+        </div>
+
+    </div>
+    <div class="infor-customer">
+
+        <div>
+            <a style="font-size: 18px;">Tên Khách Hàng</a><br />
+            <input type="text" style="width: 300px;" ng-model="KhachHang.TenKH" id="username"><br /><br />
+            <a style="font-size: 18px;">SDT</a><br />
+            <input type="text" style="width: 300px;" ng-model="KhachHang.SdtKH" id="sdt"><br /><br />
+
+            <a style="font-size: 18px;">Địa chỉ</a><br />
+            <input type="text" style="width: 300px;" ng-model="KhachHang.DiaChi" id="diachi">
+            @*<p>Email</p>
+                <input type="text" ng-model="KhachHang.Email" id="email">*@
+        </div>
+
+    </div>
+    <br />
+    <br />
+
+    <div class="row" @*ng-controller="CartController"*@>
+        <table class="table table-hover" style="background-color:white">
+            <thead>
+                <tr>
+                    <th scope="col">Tên Sản Phẩm</th>
+                    <th scope="col">Ảnh</th>
+                    <th scope="col">Số Lượng</th>
+                    <th scope="col">Đơn giá</th>
+                    <th scope="col">Thành Tiền</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="d in dsDonHang">
+                    <td>{{d.TenSP }}</td>
+                    <td>  <img style="width: 50px; height: 50px" src="~/images/{{d.Anh}}" /></td>
+                    <td>{{d.SoLuong }}</td>
+                    <td>{{d.Gia}}</td>
+                    <td style="color:red">{{d.SoLuong*d.Gia}} đ</td>
+                    <th scope="col">
+                        <button ng-click="Delete(d.MaSP)"><i class="fas fa-trash-alt"></i></button>
+                    </th>
+
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2" rowspan="1"></td>
+                    <td colspan="3"><strong>Tổng: </strong></td>
+                    <td colspan="1" id="total_price" style="font-weight: bold; font-size: 20px; color: red ">{{TT}}đ</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+
+
+        <a type="button" style="margin-top: 100px;width:160px;height:50px;" class="btn btn-success"
+           href="/Home/Index">Continue Shopping</a>
+        <button style="margin-top: 100px;width:150px;margin-left:20px;" type="button" class="btn btn-success" ng-click="DatHang()" 
+                data-toggle="modal" data-target="#modalorder">
+            Thanh Toán
+        </button>
+    </div>
+    <div class="modal fade" id="modalorder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ĐẶT HÀNH THÀNH CÔNG</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="content-left">
+                        <div class="contact">
+                            <img src="~/images/2.jpg" alt="" style=" width: 450px; height: 200px;">
+                            <p style="padding-top: 15px;">Nhằm giúp việc xử lí đơn hàng nhanh hơn nữa. Chúng tôi sẽ không gọi điện cho bạn để xác nhận đơn hàng nữa.</p>
+                        </div>
+                        <h3>CẢM ƠN BẠN ĐÃ MUA HÀNG TẠI CỬA HÀNG MỸ PHẨM CỦA CHÚNG TÔI</h3>
+
+                        <p>Bạn có thể xem lại đơn hàng <a href="" style="color: blue;text-decoration: none;">đơn hàng của tôi</a></p>
+                        <p>Thời gian giao hàng dự kiến từ 2-3 ngày làm việc, không kể Thứ 7- Chủ Nhật</p>
+                        <p>Thông tin chi tiết của đơn hàng đã được gửi đến địa chỉ mail <a href="" style="color: blue;text-decoration: none;" ng-model=" KhachHang.Email"></a> .Nếu không thấy vui lòng kiểm tra trong hộp thư Spam </p>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" style="background-color:green!important;color:white" href="Home/Index">Tiếp tục mua sắm</button>
+                    <button type="button" class="btn btn-primary" style="background-color:lightpink!important;color:white" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

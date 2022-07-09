@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "_Menu";
+}
+
+<div id="nav" ng-app="CustommerApp">
+    <div id="menu">
+        <ul>
+            <li><a href="~/beauty.html">HOME</a></li>
+            <li><a href="~/sale.html">SALE</a></li>
+            <li><a href="#">BÁN CHẠY</a></li>
+            <li><a href="#">HÀNG MỚI VỀ</a></li>
+            <li><a href="#">CHĂM SÓC DA</a></li>
+            <li>
+                <a href="#">DÒNG SẢN PHẨM</a>
+                <ul ng-controller="MenuController">
+                    @*<li ng-repeat="l in listDongSP">*@
+                    @*<a ng-click="SelectDongSP(l.MaDongSP)" href="/Home/Index.cshtml">{{l.MaDong}}</a></li>*@
+
+                    <li ng-repeat="l in listDongSP">
+                        <a ng-click="SelectDongSP(l.MaDong)" href="/SanPham/TrangDiem">{{l.MaDong}}</a>
+                    </li>
+
+                </ul>
+            </li>
+            @*<li>
+                    <a href="#">THƯƠNG HIỆU</a>
+                    <ul>
+                        <li><a href="~/laneige.html">LANEIGE</a></li>
+                        <li><a href="~/anessa.html">ANESSA</a></li>
+                        <li><a href="~/backrouge.html">BACKROUGE</a></li>
+                        <li><a href="~/3ce.html">3CE</a></li>
+                        <li><a href="~/inisfree.html">INISFREE</a></li>
+                        <li><a href="~/bbia.html">BBIA</a></li>
+                    </ul>
+                </li>*@
+
+        </ul>
+    </div>
+</div>
+
+

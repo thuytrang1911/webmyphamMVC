@@ -1,0 +1,58 @@
+﻿@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Đăng Nhập</title>
+    <script src="~/Areas/Admin/Scripts/angular.min.js"></script>
+    <link href="~/Areas/Admin/css/style_login.css" rel="stylesheet" />
+    <script src="~/Areas/Admin/Scripts/Controller/LoginController.js"></script>
+
+    @*<script src="~/Areas/Admin/Scripts/Controller/Customer.js"></script>*@
+
+    <link rel="stylesheet" type="text/css"
+          href="~/fontawesome/css/all.min.css" />
+    <script src='~/js/jquery-3.6.0.min.js' type='text/javascript'></script>
+    <style type="text/css">
+        body {
+            margin: 0px;
+        }
+    </style>
+</head>
+@*<img src="~/image/nen2.png" />*@
+<body ng-app="SanPhamApp" @*style="background-image:url( ~ /image/nen2.png);"*@>
+    <div ng-controller="LoginController">
+        <form id="form-loign" action="" method="POST" role="form">
+            <div class="ngoai ">
+                <div class="trong">
+                    <div class="left">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="right">
+                        <h1>ĐĂNG NHẬP</h1>
+                        <p>Username</p>
+                        <input class='a' id='username' type="text" ng-model="UN" placeholder="Username" required />
+                        <br /><br />
+                        <p>Password</p>
+                        <input class='a' id='password' type="password" ng-model="PW" placeholder="Password" required />
+                        <br /><br />
+
+                        <button type="submit" style="margin-left:50px" class='btn' ng-click="Login(UN, PW)">Đăng Nhập</button>
+                        <br /><br />
+                        @*<div class="forgotpassword" style="padding-right: 50px">
+                                <a href="#" style="display: block;  ">Quên mật khẩu?</a>
+                            </div>
+                            <div class="dangky">
+                                <a href="./DangKy.html" style="display: block">Đăng ký</a>
+                            </div>*@
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <script src='~/js/login.js'></script>
+</body>
+</html>

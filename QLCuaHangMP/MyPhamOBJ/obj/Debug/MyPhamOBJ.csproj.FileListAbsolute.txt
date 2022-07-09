@@ -1,0 +1,6 @@
+F:\Project3\QLCuaHangMP\MyPhamOBJ\bin\Debug\MyPhamOBJ.dll
+F:\Project3\QLCuaHangMP\MyPhamOBJ\bin\Debug\MyPhamOBJ.pdb
+F:\Project3\QLCuaHangMP\MyPhamOBJ\obj\Debug\MyPhamOBJ.csproj.CoreCompileInputs.cache
+F:\Project3\QLCuaHangMP\MyPhamOBJ\obj\Debug\MyPhamOBJ.dll
+F:\Project3\QLCuaHangMP\MyPhamOBJ\obj\Debug\MyPhamOBJ.pdb
+F:\Project3\QLCuaHangMP\MyPhamOBJ\obj\Debug\MyPhamOBJ.csproj.AssemblyReference.cache

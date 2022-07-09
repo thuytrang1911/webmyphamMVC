@@ -1,0 +1,11 @@
+F:\Project3\QLCuaHangMP\MyPhamBUS\bin\Debug\MyPhamBUS.dll
+F:\Project3\QLCuaHangMP\MyPhamBUS\bin\Debug\MyPhamBUS.pdb
+F:\Project3\QLCuaHangMP\MyPhamBUS\bin\Debug\MyPhamDAO.dll
+F:\Project3\QLCuaHangMP\MyPhamBUS\bin\Debug\MyPhamOBJ.dll
+F:\Project3\QLCuaHangMP\MyPhamBUS\bin\Debug\MyPhamDAO.pdb
+F:\Project3\QLCuaHangMP\MyPhamBUS\bin\Debug\MyPhamOBJ.pdb
+F:\Project3\QLCuaHangMP\MyPhamBUS\obj\Debug\MyPhamBUS.csproj.AssemblyReference.cache
+F:\Project3\QLCuaHangMP\MyPhamBUS\obj\Debug\MyPhamBUS.csproj.CoreCompileInputs.cache
+F:\Project3\QLCuaHangMP\MyPhamBUS\obj\Debug\MyPhamBUS.csproj.CopyComplete
+F:\Project3\QLCuaHangMP\MyPhamBUS\obj\Debug\MyPhamBUS.dll
+F:\Project3\QLCuaHangMP\MyPhamBUS\obj\Debug\MyPhamBUS.pdb

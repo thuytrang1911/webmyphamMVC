@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="main">
+
+    <div>
+        <div>
+            Sorting Field name
+            <select name="sort-price" id="sort-price" ng-model="sortcolumn">
+                <option value="MaSP">Ma san pham</option>
+                <option value="TenSP" selected="selected">Ten san pham</option>
+            </select>
+        </div>
+        <div>
+            Sorting Direction
+            <input type="button" value="{{dr}}" ng-click="Chon(dr)" />
+        </div>
+    </div>
+
+
+    <div style="width:25%;height:35px; color: #6E573D; position: relative">
+        <label style="padding-left:20px;line-height: 40px; font-size: 25px"><b>GỢI Ý CHO BẠN</b></label>
+    </div>
+    <div style='width: 30%;height: 2.5px; background-color: #6E573D; margin-left:20px; '></div>
+
+    <div class="listSanPham" ng-controller="SanPhamController">
+        <div class="col-3 col-m-6 col-s-12" ng-repeat="s in listSanPham">
+            <div>
+                <div id='0' class="product">
+
+                    <a ng-click="" href="/ChiTietSP/Index">
+                        <img class="product-img"
+                             src="~/images/{{s.Anh}}" />
+                    </a>
+
+                    @*<img class="product-img" src="~/images/m1.jpg" />*@
+                    <a href="#" class="product-name">{{s.TenSP}}</a>
+
+                    <input type='button' style="width: 100px; height:40px" class='btn-buy' value='CHỌN MUA' />
+                    <input type="button" style="width: 100px; height:40px" class="btn-view" value="CHI TIẾT"
+                           onclick="location='/CTSanPham/Index'" />
+                </div>
+            </div>
+        </div>
+        @*<dir-pagination-controls max-size="maxSize"
+                                     direction-links="true"
+                                     boundary-links="true"
+                                     on-page-change="GetSanPhamList(newPageNumber)">
+            </dir-pagination-controls>*@
+
+
+
+
+    </div>
+</div>
+

@@ -1,0 +1,320 @@
+﻿<html>
+<head>
+    <title>
+        SHOP BEAUTY
+    </title>
+
+    <style type="text/css">
+        body {
+            margin: 0px;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset='utf-8' />
+    <link rel="stylesheet" type="text/css" href="~/css/beauty.css" />
+    <link rel='stylesheet' type="text/css" href="~/css/ct.css">
+    <link href="~/css/login.css" rel="stylesheet" />
+    <script src='~/js/jquery-3.6.0.min.js' type='text/javascript'></script>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Areas/Admin/Scripts/dirPagination.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="~/js/beauty.js"></script>
+    <script src="~/js/load_img.js"></script>
+    <script src="~/js/images.js"></script>
+
+
+
+</head>
+
+
+
+<body ng-app="CustommerApp">
+    <div class='row ' style="margin: auto">
+        <div class='col-6 col-m-6 col-s-12'>
+            <ul id='left'>
+                <li>Hotline: 1900 000 000</li>
+            </ul>
+        </div>
+
+
+        @*ĐĂNG KÝ*@
+        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" ng-controller="LoginController">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body modal-body-sub_agile">
+                        <div class="main-mailposi">
+                            <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                        </div>
+
+
+                        <div style=" width:100%; height: 450px; background-color: white; margin: auto; margin-top: 50px; padding:20px; border:1px solid white">
+                            <div style=" width: 70%; height: 50px; background-color: gray; color: white; text-align:center; border-radius: 5px; margin-left:50px">
+                                <h3 style="text-align: center ; padding-top: 15px">CREATE ACCOUNTS</h3>
+                            </div>
+                            <div style=" margin-right: 20px;">
+                                <h4 style="margin-left:10px; margin-top:30px">
+                                    <a>Họ và tên:</a>
+                                    <input type="text" ng-model="KhachHang.TenKH" style="line-height:30px; width:55%;text-align: center ;margin-left: 50px ">
+                                    <span style="color: red">*</span>
+                                </h4>
+                                <h4 style="margin-left: 10px">
+                                    SĐT:
+                                    <input type="text" ng-model="KhachHang.SdtKH" style="line-height:30px; width:55%;text-align: center ;margin-left: 100px ">
+                                    <span style="color: red">*</span>
+                                </h4>
+                                <h4 style="margin-left: 10px">
+                                    Địa chỉ:
+                                    <input type="text" ng-model="KhachHang.DiaChi" style="line-height:30px; width:55%;text-align: center ;margin-left: 75px ">
+                                    <span style="color: red">*</span>
+                                </h4>
+
+                                @*<h4 style="margin-left: 50px">
+                                    Email:
+                                    <input type="text" ng-model="KhachHang.Email" style="line-height:30px; width:55%;text-align: center ;margin-left: 85px ">
+                                    <span style="color: red">*</span>
+                                </h4>*@
+                                <h4 style=" margin-left: 10px;">
+                                    Tạo mật khẩu:
+                                    <input type="text" ng-model="KhachHang.MatKhau" style="line-height:30px; width:55%;text-align: center ;margin-left: 15px ">
+
+                                </h4>
+                                <input type="button" value="ĐĂNG KÝ" ng-click="Signup()" style="color: #FFF;height:50px; width:180px;text-align: center ; background-color:red; border: 1px solid black;margin-left: 100px; border-radius: 5px">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- //Modal content-->
+        </div>
+
+
+
+        @*Đăng nhập*@
+        <div class="modal fade" style="width:600px;height:500px" id="Login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-controller="LoginController">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        @*<h5 class="modal-title" id="exampleModalLabel"> Đăng Nhập</h5>*@
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    @*<form id="form-loign" action="" method="POST" role="form">*@
+                    <div @*id="login"*@>
+                        <div class="login-img">
+                            <img src='~/images/1.png' />
+                        </div>
+                        <div class="login">
+                            <a style="color: rgb(54, 92, 97);font-size: 27px;">Đăng nhập</a><br />
+                            <br />
+                            <a style="color: rgb(54, 82, 87);">Tài khoản:</a> <br />
+                            <input ng-model="TenKH" type='text' placeholder='' style='line-height: 27px; width: 200px' id="username" required />
+                            <br /><br />
+                            <a style="color: rgb(54, 94, 99);">Mật khẩu: </a><br />
+                            <input ng-model="MatKhau" type='password' placeholder='' style='line-height: 27px; width: 200px' id="password" required />
+                            <br />
+
+                            <input type="checkbox" zoom="1.2" ng-model="remember" /> Ghi nhớ lần sau
+                            <br /><br />
+                            <button type="submit" data-dismiss="{{close}}" class='btn' ng-click="Login(TenKH,MatKhau,remember)">Đăng Nhập</button>
+                            <br /><br />
+                            <a href="#">
+                                <label>Bạn quên mật khẩu???</label>
+                            </a>
+                            <a href="/Home/DangKy">
+                                <label style="float: right;">Đăng ký</label>
+                            </a>
+                        </div>
+
+                    </div>
+                    @*<script src='~/js/login.js'></script>*@
+                    @*</form>*@
+                </div>
+            </div>
+        </div>
+        @*Giỏ hàng*@
+        <div class='col-6 col-m-6 col-s-12'>
+            <div id='right'>
+
+                <!--<button type="button"--> @*class="btn btn-primary"*@ <!--style="width:100px; height:22px" data-toggle="modal" data-target="#Login">-->
+                @*<i class="far fa-user-circle"></i>*@
+                <!--Đăng nhập
+            </button>-->
+                @*<a href='~/login.html' style='color: white;'>Đăng nhập</a>*@
+                <div class="login" data-toggle="modal" data-target="#Login" ng-if="login_state == 'Đăng nhập'" style="float:left">
+                    <b>{{login_state}}</b>
+                    <label>{{username}}</label>
+                </div>
+                <div type="button" class="Login" ng-if="login_state == 'Đăng xuất'" ng-click="Logout()">
+                    <b>{{login_state}}</b>
+
+                </div>
+
+                <div type="button" style="float:right" data-toggle="modal" data-target="#myModal2"> Đăng ký </div>
+
+            </div>
+        </div>
+    </div>
+    @*Header*@
+    <div id="header">
+        <div class='headers'>
+            <div class="col-3" class='header-left' style='height: 120px; padding-left:50px;'>
+                <img src='~/images/logo1.jpg' style='width: 250px;height: 115px;border-radius: 30px' />
+            </div>
+            <div class="col-9" class='header-right' style='height: 120px;padding-left:10px;'>
+
+                <div id="search-form" class="col-9" style="top:15px; width:90%;height:40px">
+                    <div id="search" ng-controller="SanPhamControllers">
+                        <input class="txt" ng-model="searchName" type="text" style="width: 80%; border-right: none;" placeholder="Tìm kiếm sản phẩm..." />
+                        <img id="btn-search" style="width: 40px; height: 40px; border-left: none; border: 2px solid black; "
+                             src="~/images/gg.png" />
+                    </div>
+                </div>
+                <div id="header-link" class="col-3">
+                    <a href='/GioHang/Index' ng-controller="CartController">
+
+                        <img src="~/images/cart-icon.png" /><br />GIỎ HÀNG
+                        <label class="cart-amount"> {{SL}}</label>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @*Thanh Menu*@
+    <div id="nav">
+        <div id="menu">
+            <ul>
+                <li><a href="/Home/Index">TRANG CHỦ</a></li>
+                <li><a href="~/sale.html" style='color:red'>KHUYẾN MÃI</a></li>
+                <li ng-controller="SanPhamControllers">
+                    <a href="/SanPham/SPBanChay">BÁN CHẠY</a>
+                </li>
+                <li><a href="#">HÀNG MỚI VỀ</a></li>
+                <li>
+                    <a href="#">THƯƠNG HIỆU</a>
+                    <ul ng-controller="MenuControllers">
+
+                        <li ng-repeat="t in listThuongHieu">
+                            <a ng-click="SelectThuongHieu(t.MaTH)" href="/SanPham/ThuongHieu">{{t.TenTH}}</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="#">CHĂM SÓC DA</a></li>
+                <li>
+                    <a href="#">DÒNG SẢN PHẨM</a>
+                    <ul ng-controller="MenuController">
+                        <li ng-repeat="l in listDongSP">
+                            <a ng-click="SelectDongSP(l.MaDong)" href="/SanPham/TrangDiem">{{l.TenDong}}</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+    @RenderBody() @*Chèn mã html của các site mà sd share layout này*@
+
+    @*Footer start*@
+    <div id="out" style="height:150px; width:100%; ">
+        <div id="main1" style="height:130px;width:90%; margin: auto;">
+            <div class="col-3 col-m-6 col-s-12">
+                <div class="icon-type">
+                    <a href="">
+                        <img src="~/images/icon-phone.png" alt="">
+                    </a>
+                    <p>Hotline: 1900 000 000 (Giờ Mở Cửa 9:00 - 21:30)</p>
+                </div>
+
+            </div>
+            <div class="col-3 col-m-6 col-s-12">
+                <div class="icon-type">
+                    <a href="">
+                        <img src="~/images/admin.png" alt="">
+                    </a>
+                    <p>Hỗ trợ đặt hàng: beautyshop@gmail.com</p>
+                </div>
+
+            </div>
+            <div class="col-3 col-m-6 col-s-12">
+                <div class="icon-type">
+                    <a href="">
+                        <img src="~/images/lh.jpg" alt="">
+                    </a>
+                    <p>Liên hệ hợp tác: Sale@beauty.com</p>
+                </div>
+
+            </div>
+            <div class="col-3 col-m-6 col-s-12">
+                <div class="icon-type">
+                    <a href="">
+                        <img src="~/images/dc.png" alt="">
+                    </a>
+                    <p>số 000 đường 000 huyện 000 </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div id='footer1'>
+            <div class="col-4 col-m-8 col-s-12">
+                <div class="1">
+                    <a>
+                        CÔNG TY TNHH MTV THƯƠNG MẠI DỊCH VỤ BLUE OCEAN
+                        <br> Giấy CNĐKDN Số: 0316037655 do Sở kế hoạch và đầu tư Tp. HCM cấp ngày 25/11/2019
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-4 col-m-8 col-s-12">
+                <div class="1">
+                    <a>CHỨNG CHỈ ĐẠI LÝ CHÍNH HÃNG</a><br>
+                    <a>PHƯƠNG THỨC THANH TOÁN</a><br>
+                    <a>CHÍNH SÁCH GIAO HÀNG</a><br>
+                    <a>CHÍNH SÁCH BẢO MẬT</a><br>
+                    <a>CHÍNH SÁCH ĐỔI TRẢ</a><br>
+                    <a>ĐIỀU KHOẢN MUA BÁN</a><br>
+                    <a>LIÊN HỆ</a><br>
+                    <a>TUYỂN DỤNG</a><br>
+                </div>
+
+            </div>
+            <div class="col-4 col-m-8 col-s-12">
+                <div class="icon">
+                    Kết nối với chúng tôi<br>
+                    <a href="">
+                        <img src="~/images/f.png">
+                    </a>
+                    <a href="">
+                        <img src="~/images/ita.jpg">
+                    </a>
+                    <a href="">
+                        <img src="~/images/youtobe.png">
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/Controller/CustomerController.js"></script>
+</body>
+</html>

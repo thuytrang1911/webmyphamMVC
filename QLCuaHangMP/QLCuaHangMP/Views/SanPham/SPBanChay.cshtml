@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "SPBanChay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class='main' @*ng-app="CustommerApp"*@>
+    <div id='search-re'>
+    </div>
+    <div id="main" ng-controller="SanPhamControllers">
+
+        <div>
+            <div>
+                Sorting Field name
+                <select name="sort-price" id="sort-price" ng-model="sortcolumn">
+                    <option value="MaSP">Ma san pham</option>
+                    <option value="TenSP" selected="selected">Ten san pham</option>
+                </select>
+            </div>
+            <div>
+                Sorting Direction
+                <input type="button" value="{{dr}}" ng-click="Chon(dr)" />
+            </div>
+        </div>
+
+
+        <div style="width:25%;height:35px; color: #6E573D; position: relative">
+            <label style="padding-left:20px;line-height: 40px; font-size: 25px"><b>SẢN PHẨM BÁN CHẠY</b></label>
+        </div>
+        <div style='width: 30%;height: 2.5px; background-color: #6E573D; margin-left:20px; '></div>
+
+        <div class="listSanPham">
+
+            <div class="col-3 col-m-6 col-s-12" ng-repeat="sp in SPBanChay "
+                 @*dir-paginate="sp in listSanPham|orderBy:sortcolumn:reverse|itemsPerPage:pageSize" total-items="totalCount"*@>
+                <div >
+
+
+                    <div class="product" style="height:400px; ">
+
+                        <a ng-click="CTSP(sp.MaSP)">
+                            <img class="product-img"
+                                 src="~/images/{{sp.Anh}}" />
+                        </a>
+                        <label class="product-name"><a ng-click="CTSP(sp.MaSP)">{{sp.TenSP}}</a></label>
+                        <br />
+                        Giá bán: <label class="product-price">{{sp.GiaBan}}</label>
+                        <br />
+                        <input type='button' style="width: 100px; height:40px" class='btn-buy'
+                               ng-click="$root.AddCart(sp)" @*onclick="location='/GioHang/Index'"*@ value='CHỌN MUA' />
+                        <input type='button' style="width: 100px; height:40px" class="btn-view" value="CHI TIẾT"
+                               ng-click="CTSP(sp.MaSP)" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="clear: both"></div>
+
+        </div>
+        @*<dir-pagination-controls max-size="maxSize"
+                                 direction-links="true"
+                                 boundary-links="true"
+                                 on-page-change="GetSanPhamList(newPageNumber)" style="float:right;">
+        </dir-pagination-controls>*@
+    </div>
+</div>

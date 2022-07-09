@@ -1,0 +1,76 @@
+
+body{
+	font-family: arial;		
+	background-position: center;
+    margin: auto;
+    
+	
+}
+.ngoai{
+	width: 700px;
+	height: 400px;
+    position: absolute;
+    background-color: white;
+    margin-left: 24%;
+    margin-top: 8%;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px #e2e1e1;
+
+}
+.trong{
+    width: 730px;
+    height: 320px;
+    margin: 10px 10px 10px 10px;
+    
+}
+.left{
+    width: 250px;
+	height: 300px;
+    float: left;
+    
+}
+.left i{
+	font-size: 220px;
+	float: left;
+	padding-top: 70px;
+    color: #79bdcf;
+    padding-left: 50px;
+	
+}
+h1{
+    color:#79bdcf;
+    padding-left: 15%;
+}
+.right{
+    width: 400px;
+	height: 400px;
+    position: relative;
+    float: right;
+    
+}
+.a{
+    height: 40px;
+    width: 320px;
+    border: groove;
+    
+}
+.right p{
+	font-size: 15px;	
+	position: relative;
+	top:0px;	
+	font-weight: bold;
+}
+.btn{
+    height: 36px;
+     width: 150px;
+     margin-left: 20%;
+     background-color:rgb(219, 218, 218); 
+     font-weight: bold;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+}
+.forgotpassword{
+    float: left;
+    padding-right: 120px;
+}
